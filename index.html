@@ -24,6 +24,7 @@
         spot! Provide an ID below to search for a book by ID. If no ID is
         provided, all books will be returned.
       </p>
+      <br>
 
       <h5>Request a Book(s):</h5>
       <form action="#" id="book-request">
@@ -31,8 +32,31 @@
         <input type="Submit" value="Find Book(s)">
       </form>
       <br>
-      <p>Content Output:</p>
-      <p id="output-text">Nothing Yet</p>
+      
+      <h5>Create a Book:</h5>
+      <form action = '#' id="book-create">
+        <input type = "text" name="book[title]" placeholder="Title of book">
+        <input type="text" name="book[author]" placeholder="Author of book">
+        <input type="submit" value="Add Book">
+      </form>
+
+      <br>
+      <h5 id="output-title">Content</h5>
+      <table id=result-table class="table table-bordered">
+        <tr>
+          <td>ID</td>
+          <td id="book-id-number"></td>
+        </tr>
+        <tr>
+          <td>Title</td>
+          <td id="book-title"></td>
+        </tr>
+        <tr>
+          <td>Author</td>
+          <td id="book-author"></td>
+        </tr>
+      </table>
+      <p id="output-text"></p>
       <br>
     </body>
 </html>

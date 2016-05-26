@@ -3,13 +3,23 @@
 const libraryApi = require('./library-api');
 const ui = require('./ui');
 
+$('#output-title').hide();
+$('#result-table').hide();
+$('#output-text').hide();
+
 // get in the habit of naming your handlers, it eases debugging.
 //
 // also, follow a convention for handlers. here, I name my handler
 // beginning with 'on' to denote that it is done when the GET /books
 // button is clicked
 const onGetBooks = function (event) {
+
+  $('#output-title').hide();
+  $('#result-table').hide();
+  $('#output-text').hide();
+
   event.preventDefault();
+
   let bookId = $('#book-id').val();
 
   if (bookId.length === 0) {
@@ -23,7 +33,21 @@ const onGetBooks = function (event) {
   }
 };
 
+const onCreateBook = function (event){
+
+  $('#output-title').hide();
+  $('#result-table').hide();
+  $('#output-text').hide();
+
+  event.preventDefault();
+
+  libraryApi.create(event.target)
+  .done(ui.onSuccess)
+  .fail(ui.onError);
+};
+
 // On document ready
 $(() => {
   $('#book-request').on('submit', onGetBooks);
+  $('#book-create').on('submit', onCreateBook);
 });

@@ -1,7 +1,7 @@
 'use strict';
 
 const app = require('./app');
-// const getFormFields = require('../../lib/get-form-fields');
+const getFormFields = require('../../lib/get-form-fields');
 
 const index = function () {
   return $.ajax({
@@ -17,7 +17,16 @@ const show = function (bookId) {
   });
 };
 
+const create = function (form){
+  return $.ajax({
+    url: app.host + '/books',
+    method: 'POST',
+    data: getFormFields(form),
+  });
+};
+
 module.exports = {
   index,
   show,
+  create,
 };
