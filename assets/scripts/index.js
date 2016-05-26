@@ -46,8 +46,25 @@ const onCreateBook = function (event){
   .fail(ui.onError);
 };
 
+const onDeleteBook = function (event){
+
+  $('#output-title').hide();
+  $('#result-table').hide();
+  $('#output-text').hide();
+
+  event.preventDefault();
+
+  let bookId = $('#book-delete-id').val();
+
+  libraryApi.destroy(bookId)
+  .done(ui.onSuccessfulDelete)
+  .fail(ui.onError);
+
+};
+
 // On document ready
 $(() => {
   $('#book-request').on('submit', onGetBooks);
   $('#book-create').on('submit', onCreateBook);
+  $('#book-delete').on('submit', onDeleteBook);
 });
