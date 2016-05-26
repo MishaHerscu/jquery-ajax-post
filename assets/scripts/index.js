@@ -14,6 +14,18 @@ $('#output-text').hide();
 // button is clicked
 const onGetBooks = function (event) {
 
+  let basicHTMLTable = '\
+  <table id=result-table class="table table-bordered">\
+    <tr>\
+      <th>ID</th>\
+      <th>Title</th>\
+      <th>Author</th>\
+    </tr>\
+  </table>\
+  ';
+
+  $('#result-table').html(basicHTMLTable);
+
   $('#output-title').hide();
   $('#result-table').hide();
   $('#output-text').hide();
