@@ -8,21 +8,6 @@
 const onSuccess = function (data) {
   if (data.book) {
     $('#output-title').show();
-    $('#result-table').html('<table id=result-table class="table \
-    table-bordered"> \
-      <tr> \
-        <td>ID</td> \
-        <td id="book-id-number"></td> \
-      </tr> \
-      <tr> \
-        <td>Title</td> \
-        <td id="book-title"></td> \
-      </tr> \
-      <tr> \
-        <td>Author</td> \
-        <td id="book-author"></td> \
-      </tr> \
-    </table>').append();
     $('#result-table').show();
     console.log(data.book);
     $('#book-id-number').text(JSON.stringify(data.book.id));
@@ -32,7 +17,6 @@ const onSuccess = function (data) {
     $('#output-title').show();
     $('#output-text').show();
     console.table(data.books);
-    $('#output-text').text(JSON.stringify(data.books));
   }
 };
 
