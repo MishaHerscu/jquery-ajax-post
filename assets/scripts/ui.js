@@ -8,8 +8,10 @@
 const onSuccess = function (data) {
   if (data.book) {
     console.log(data.book);
+    $('#output-text').text(JSON.stringify(data.book));
   } else {
     console.table(data.books);
+    $('#output-text').text(JSON.stringify(data.books));
   }
 };
 
